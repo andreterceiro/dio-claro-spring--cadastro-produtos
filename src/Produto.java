@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Produto {
+public class Produto implements Comparable {
     /**
      * Código do produto
      */
@@ -107,4 +107,17 @@ public class Produto {
     @Override
     public int hashCode() {
         return Objects.hash(this.getCodigo());
+    }
+
+    /**
+     * Method that help the comparison of two instances of this class by name
+     *
+     * @param o Object to compare to this instance
+     *
+     * @return The result of the comparison
+     */
+    @Override
+    public int compareTo(Object o) {
+        Produto objectToCompare = (Produto) o;
+        return this.getNome().compareToIgnoreCase(objectToCompare.getNome());
     }}
